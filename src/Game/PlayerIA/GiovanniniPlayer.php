@@ -61,6 +61,5 @@ class GiovanniniPlayer extends Player
 		return $choice3;
 	else if ($stats['paper'] / $n >= 0.34)
 		return $choice1;
-	return $choice2;
     }
 };
