@@ -41,32 +41,24 @@ class GiovanniniPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-        $choice = parent::scissorsChoice();
 	$choice1 = parent::scissorsChoice();
 	$choice2 = parent::rockChoice();
 	$choice3 = parent::paperChoice();
-	
-	if ($this->result->getNbRound())
+
+	$stats = $this->getStatsFor($this->opponentSide);
+ 	
+	if ($stats['rock'] > 0.33)
 	{
-		$choice = $choice2;
-		return $choice;
+		return $choice3;
 	}
-	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice1)
+	else if ($stats['paper'] > 0.33)
 	{
-		$choice = $choice1;
-		return $choice;
+		return $choice1;
 	}
-	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice2)
+	else if ($stats['scissors'] > 0.34)
 	{
-		$choice = $choice2;
-		return $choice;
-	}
-	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice3)
-	{
-		$choice = $choice3;
-		return $choice;
-	}
-	else
 		return $choice2;
+	}
+	return $choice2;
     }
 };
