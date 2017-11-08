@@ -49,18 +49,18 @@ class GiovanniniPlayer extends Player
  	$n = $this->result->getNbRound();
 	if ($n == 0)
 		return $choice1;
-	else if ($stats['rock'] / $n >= 0.35 && $stats['scissors'] <= 0.25)
-	{
+	else if ($stats['rock'] / $n >= 0.4 && $stats['scissors'] <= 0.2)
 		return $choice3;
-	}
-	else if ($stats['paper'] / $n >= 0.35 && $stats['rock'] <= 0.25)
-	{
+	else if ($stats['paper'] / $n >= 0.4 && $stats['rock'] <= 0.2)
 		return $choice1;
-	}
-	else if ($stats['scissors'] / $n >= 0.35 && $stats['paper'] <= 0.25)
-	{
+	else if ($stats['scissors'] / $n >= 0.4 && $stats['paper'] <= 0.2)
 		return $choice2;
-	}
+	else if ($stats['scissors'] / $n >= 0.33)
+		return $choice2;
+	else if ($stats['rock'] / $n >= 0.33)
+		return $choice3;
+	else if ($stats['paper'] / $n >= 0.34)
+		return $choice1;
 	return $choice2;
     }
 };
