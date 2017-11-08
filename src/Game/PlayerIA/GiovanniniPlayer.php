@@ -42,7 +42,31 @@ class GiovanniniPlayer extends Player
         // -------------------------------------    -----------------------------------------------------
 
         $choice = parent::scissorsChoice();
-
-        return $choice;
+	$choice1 = parent::scissorsChoice();
+	$choice2 = parent::rockChoice();
+	$choice3 = parent::paperChoice();
+	
+	if ($this->result->getNbRound())
+	{
+		$choice = $choice2;
+		return $choice;
+	}
+	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice1)
+	{
+		$choice = $choice1;
+		return $choice;
+	}
+	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice2)
+	{
+		$choice = $choice2;
+		return $choice;
+	}
+	else if ($this->result->getLastChoiceFor($this->opponentSide) == $choice3)
+	{
+		$choice = $choice3;
+		return $choice;
+	}
+	else
+		return $choice2;
     }
 };
