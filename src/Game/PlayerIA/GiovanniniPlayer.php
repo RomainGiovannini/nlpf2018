@@ -45,17 +45,19 @@ class GiovanniniPlayer extends Player
 	$choice2 = parent::rockChoice();
 	$choice3 = parent::paperChoice();
 
-	$stats = $this->getStatsFor($this->opponentSide);
- 	
-	if ($stats['rock'] > 0.33)
+	$stats = $this->result->getStatsFor($this->opponentSide);
+ 	$n = $this->result->getNbRound();
+	if ($n == 0)
+		return $choice1;
+	else if ($stats['rock'] / $n > 0.33)
 	{
 		return $choice3;
 	}
-	else if ($stats['paper'] > 0.33)
+	else if ($stats['paper'] / $n > 0.33)
 	{
 		return $choice1;
 	}
-	else if ($stats['scissors'] > 0.34)
+	else if ($stats['scissors'] / $n > 0.34)
 	{
 		return $choice2;
 	}
