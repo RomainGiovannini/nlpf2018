@@ -53,7 +53,7 @@ class GiovanniniPlayer extends Player
 	{
 		return $choice3;
 	}
-	else if ($stats['paper'] / $n >= 0.35 && $stats['rocks'] <= 0.25)
+	else if ($stats['paper'] / $n >= 0.35 && $stats['rock'] <= 0.25)
 	{
 		return $choice1;
 	}
